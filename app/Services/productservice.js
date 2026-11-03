@@ -1,8 +1,9 @@
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export class ProductService {
   static async getProducts() {
     const response = await fetch(
-      "http://localhost:3000/api/products"
+      `${BASE_URL}/api/products`
     );
 
     if (!response.ok) {
@@ -14,7 +15,7 @@ export class ProductService {
 
   static async getProductById(id) {
     const response = await fetch(
-      `http://localhost:3000/api/products/${id}`
+      `${BASE_URL}/api/products/${id}`
     );
 
     if (!response.ok) {
@@ -24,4 +25,3 @@ export class ProductService {
     return response.json();
   }
 }
-
